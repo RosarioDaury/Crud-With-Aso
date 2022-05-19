@@ -1,0 +1,47 @@
+﻿@model Crud_Project.Models.PersonForm
+@{
+    ViewBag.Title = "Create";
+}
+
+
+
+<form asp-action="Create" asp-controller="Home" method="post" enctype="multipart/form-data">
+    
+    <div class="row">
+        
+        <div class="col-md-12" >
+
+            <div>
+                @Html.LabelFor(d => d.PersonName)
+                @Html.TextBoxFor(d => d.PersonName, "", new {@class="form-control"})
+                @Html.ValidationMessageFor(d => d.PersonName, null, new { @class = "danger" })
+            </div>
+
+            <div>
+                @Html.LabelFor(d => d.PersonLastName)
+                @Html.TextBoxFor(d => d.PersonLastName, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.PersonLastName, null, new { @class = "danger" })
+            </div>
+
+            <div>
+                @Html.LabelFor(d => d.Profession)
+                @Html.TextBoxFor(d => d.Profession, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Profession, null, new { @class = "danger" })
+            </div>
+
+            <div style="text-align:center;">
+                <br>
+                <br>
+                <br>
+                <input type="file" id="image" name="image" asp-for="@Model.Img"/>
+            </div>
+
+            <div>
+                <input type="submit" class="btn btn-success" style="margin:20px;" value="Save">
+            </div>
+        </div>
+    
+    </div>
+
+</form>
+

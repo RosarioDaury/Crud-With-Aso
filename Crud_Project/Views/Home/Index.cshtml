@@ -1,0 +1,39 @@
+﻿@model List<Person>
+@{
+    ViewData["Title"] = "Table Page";
+}
+
+<div class="row" style="justify-content:flex-end; padding:10px;">
+    <a class="btn btn-primary" style="color: white" asp-controller="Home" asp-action="Create">Create New</a>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>IMAGE</th>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>LAST NAME</th>
+                <th>PROFESSION</th>
+                <th></th>
+            </tr>
+
+            @foreach(var el in Model)
+            {
+        <tr>
+            <td><img src="data:image;base64,@System.Convert.ToBase64String(el.Img)" width="50" height="50" /></td>
+            <td>@el.Id</td>
+            <td>@el.PersonName</td>
+            <td>@el.PersonLastName</td>
+            <td>@el.Profesion</td>
+            <td>
+                <a class="btn btn-danger" href="~/Home/Delete/@el.Id">Delete</a>
+                <a class="btn btn-primary" href="~/Home/Edit/@el.Id">Edit</a>
+            </td>
+        </tr>
+            }
+        </table>
+    </div>
+</div>
+
+
